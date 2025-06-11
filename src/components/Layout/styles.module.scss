@@ -6,7 +6,11 @@
 	overflow: hidden;
 }
 
-.header {
-	transition: top 0.2s ease;
+.collapsedTop {
+	transform: translateY(-100%);
+}
+
+.collapsedLeft {
+	transform: translateX(-100%);
 }
 

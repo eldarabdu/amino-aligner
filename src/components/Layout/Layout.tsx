@@ -7,6 +7,7 @@ import { useDisclosure } from "@mantine/hooks"
 import { Header } from "@/components/Header"
 import { Sidebar } from "@/components/Sidebar"
 import { useWelcomeStore } from "@/store/welcome.state"
+import classNames from "classnames"
 
 interface LayoutProps {}
 
@@ -23,18 +24,20 @@ export const Layout: FC<LayoutProps> = ({}) => {
 				navbar={{
 					width: 300,
 					breakpoint: "sm",
-					collapsed: { mobile: !opened, desktop: isWelcomeModalOpen },
+					collapsed: { mobile: !opened },
 				}}
 				className={classes.layout}
 			>
 				<AppShell.Header
-					top={isWelcomeModalOpen ? "-100%" : 0}
-					className={classes.header}
+					className={classNames(classes.header, { [classes.collapsedTop]: isWelcomeModalOpen })}
 					bg="transparent"
 				>
 					<Header logo={"Acid Aligner"} opened={opened} toggle={toggle} />
 				</AppShell.Header>
-				<AppShell.Navbar bg="transparent">
+				<AppShell.Navbar
+					className={classNames(classes.navbar, { [classes.collapsedLeft]: isWelcomeModalOpen })}
+					bg="transparent"
+				>
 					<Sidebar />
 				</AppShell.Navbar>
 
@@ -45,4 +48,3 @@ export const Layout: FC<LayoutProps> = ({}) => {
 		</>
 	)
 }
-
