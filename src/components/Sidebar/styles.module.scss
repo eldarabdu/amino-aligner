@@ -1,5 +1,16 @@
+@use "@/styles/mixins" as *;
+
 .container {
+	position: relative;
 	border: 1px solid var(--mantine-color-gray-8);
 	border-top: 0;
+	overflow-y: hidden;
+}
+
+.clean {
+	transition: color 0.1s ease;
+	@include hover {
+		color: var(--mantine-color-red-5);
+	}
 }
 

@@ -8,6 +8,7 @@ import { TSequence } from "@/types/sequences"
 import { createSequencePairs } from "@/utils/sequences"
 import { AlignerInput } from "../AlignerInput/AlignerInput"
 import { VALID_AMINO_ACIDS } from "@/utils/validation"
+import { useHistoryStore } from "@/store/history.state"
 
 interface AlignerFormProps {}
 
@@ -18,6 +19,7 @@ interface FormValues {
 
 export const AlignerForm: FC<AlignerFormProps> = () => {
 	const setSequences = useAlighnerStore(state => state.setSequences)
+	const addToHistory = useHistoryStore(state => state.addToHistory)
 
 	const form = useForm<FormValues>({
 		initialValues: {
@@ -31,6 +33,8 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 				if (value.length !== form.values.sequence2.length && form.values.sequence2) {
 					return "Длина последовательностей должна совпадать"
 				}
+				if (value.length < 1) return "Введите последовательность"
+
 				return null
 			},
 			sequence2: value => {
@@ -39,6 +43,7 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 				if (value.length !== form.values.sequence1.length && form.values.sequence1) {
 					return "Длина последовательностей должна совпадать"
 				}
+				if (value.length < 1) return "Введите последовательность"
 				return null
 			},
 		},
@@ -47,7 +52,8 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 	const handleSubmit = (values: FormValues) => {
 		const [sequence1, sequence2] = [values.sequence1, values.sequence2]
 		const result: TSequence[] = createSequencePairs(sequence1, sequence2)
-		setSequences([...result])
+		setSequences(result)
+		addToHistory(result)
 	}
 
 	const getInputProps = (field: keyof FormValues) => {
