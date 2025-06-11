@@ -11,7 +11,7 @@ import { useWelcomeStore } from "@/store/welcome.state"
 interface LayoutProps {}
 
 export const Layout: FC<LayoutProps> = ({}) => {
-	const { isWelcomeModalOpen, setIsWelcomeModalOpen } = useWelcomeStore()
+	const { isWelcomeModalOpen } = useWelcomeStore()
 	const [opened, { toggle }] = useDisclosure()
 
 	return (

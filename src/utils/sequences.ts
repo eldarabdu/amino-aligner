@@ -1,4 +1,4 @@
-import { TAcidData, TAminoAcid, TAminoColors, TSequence } from "@/types/sequences"
+import { TAcidData, TAminoAcid, TSequence } from "@/types/sequences"
 
 export const createSequencePairs = (sequence1: string, sequence2: string): TSequence[] => {
 	const chars1 = sequence1.split("") as TAminoAcid[]

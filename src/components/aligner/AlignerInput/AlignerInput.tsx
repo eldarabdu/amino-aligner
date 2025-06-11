@@ -1,5 +1,4 @@
 import { FC } from "react"
-import classes from "./styles.module.scss"
 import { TextInput } from "@mantine/core"
 
 interface AlignerInputProps {
