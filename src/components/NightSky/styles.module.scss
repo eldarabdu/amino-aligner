@@ -1,3 +1,5 @@
+@use "@/styles/functions" as *;
+
 $stars-count: 150;
 
 .nightSky {
@@ -22,7 +24,7 @@ $stars-count: 150;
 	);
 	background-size: 600%;
 	background-position: 0 0;
-	box-shadow: inset 0 0 5em rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 0 toRem(5px) rgba(0, 0, 0, 0.5);
 	animation-duration: 20s;
 	animation-iteration-count: infinite;
 	animation-name: waveFlow;
