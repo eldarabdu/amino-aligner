@@ -1,0 +1,12 @@
+.layout {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	min-height: 100dvh;
+	overflow: hidden;
+}
+
+.header {
+	transition: top 0.2s ease;
+}
+

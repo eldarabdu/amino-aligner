@@ -1,0 +1,18 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+	padding-inline: var(--mantine-spacing-md);
+	background: var(--mantine-color-purple-8);
+	border-bottom: 1px solid var(--mantine-color-gray-8);
+}
+
+.logo {
+	&__text {
+		color: var(--mantine-color-white);
+		font-size: var(--mantine-font-size-xxxl);
+		font-weight: var(--mantine-heading-font-weight);
+	}
+}
+

@@ -1,0 +1,12 @@
+.container {
+	display: flex;
+	column-gap: var(--mantine-spacing-xs);
+	row-gap: var(--mantine-spacing-md);
+}
+
+.acids {
+	display: flex;
+	flex-direction: column;
+	gap: var(--mantine-spacing-md);
+}
+
