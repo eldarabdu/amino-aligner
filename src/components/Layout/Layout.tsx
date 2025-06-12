@@ -2,18 +2,20 @@ import { FC } from "react"
 import classes from "./styles.module.scss"
 import { Outlet } from "react-router-dom"
 import { NightSky } from "@/components/NightSky"
-import { AppShell } from "@mantine/core"
-import { useDisclosure } from "@mantine/hooks"
+import { AppShell, em } from "@mantine/core"
+import { useDisclosure, useMediaQuery } from "@mantine/hooks"
 import { Header } from "@/components/Header"
 import { Sidebar } from "@/components/Sidebar"
 import { useWelcomeStore } from "@/store/welcome.state"
 import classNames from "classnames"
+import { Notifications } from "@mantine/notifications"
 
 interface LayoutProps {}
 
 export const Layout: FC<LayoutProps> = ({}) => {
 	const { isWelcomeModalOpen } = useWelcomeStore()
 	const [opened, { toggle }] = useDisclosure()
+	const isMobile = useMediaQuery(`(max-width: ${em(750)})`)
 
 	return (
 		<>
@@ -45,6 +47,7 @@ export const Layout: FC<LayoutProps> = ({}) => {
 					<Outlet />
 				</AppShell.Main>
 			</AppShell>
+			<Notifications position={isMobile ? "bottom-right" : "top-right"} />
 		</>
 	)
 }

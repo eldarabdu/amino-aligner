@@ -1,12 +1,13 @@
 import { FC } from "react"
 import classes from "./styles.module.scss"
-import { Button, Stack, TextInput } from "@mantine/core"
+import { Button, Stack } from "@mantine/core"
 import { useForm } from "@mantine/form"
 import { validateAminoAcids } from "@/utils/validation"
 import { useAlignerStore } from "@/store/aligner.state"
 import { TSequence } from "@/types/sequences"
 import { createSequencePairs } from "@/utils/sequences"
 import { useHistoryStore } from "@/store/history.state"
+import { AlignerInput } from "@/components/aligner/AlignerInput"
 
 interface AlignerFormProps {}
 
@@ -60,27 +61,17 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 	return (
 		<form onSubmit={form.onSubmit(handleSubmit)} className={classes.container}>
 			<Stack gap="md">
-				<TextInput
+				<AlignerInput
 					label="Первая последовательность"
 					placeholder="ARND..."
 					key={form.key("sequence1")}
 					{...form.getInputProps("sequence1")}
-					styles={{
-						input: {
-							textTransform: "uppercase",
-						},
-					}}
 				/>
-				<TextInput
+				<AlignerInput
 					label="Вторая последовательность"
 					placeholder="ARND..."
 					key={form.key("sequence2")}
 					{...form.getInputProps("sequence2")}
-					styles={{
-						input: {
-							textTransform: "uppercase",
-						},
-					}}
 				/>
 				<Button className={classes.button} type="submit">
 					Выровнять
@@ -89,5 +80,4 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 		</form>
 	)
 }
-
 

@@ -1,4 +1,5 @@
 import { createTheme, rem } from "@mantine/core"
+import "@mantine/notifications/styles.css"
 
 const theme = createTheme({
 	fontFamily: "Rubik",
@@ -146,7 +147,7 @@ const theme = createTheme({
 
 	fontSizes: {
 		xs: rem(12),
-		sm: rem(14),
+		sm: rem(16),
 		md: rem(16),
 		lg: rem(18),
 		xl: rem(20),
