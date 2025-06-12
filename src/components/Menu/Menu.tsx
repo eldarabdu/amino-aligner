@@ -26,7 +26,7 @@ export const MenuRoot: FC<MenuProps> = ({ children }) => {
 				<Menu.Label>Соц сети</Menu.Label>
 				<Menu.Item
 					component="a"
-					href="https://t.me/eldarabdu"
+					href="https://t.me/eldar2499"
 					target="_blank"
 					leftSection={<TelegramIcon width={18} height={18} />}
 				>
@@ -93,4 +93,3 @@ export const MenuRoot: FC<MenuProps> = ({ children }) => {
 		</Menu>
 	)
 }
-
