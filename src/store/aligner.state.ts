@@ -1,11 +1,11 @@
 import { create } from "zustand"
-import { IAlighnerState, IAlighnerStore } from "@/types/alighner"
+import { IAlignerState, IAlignerStore } from "@/types/aligner"
 
-const initialState: IAlighnerState = {
+const initialState: IAlignerState = {
 	sequences: [],
 }
 
-export const useAlighnerStore = create<IAlighnerStore>(set => ({
+export const useAlignerStore = create<IAlignerStore>(set => ({
 	...initialState,
 	setSequences: value => set({ sequences: value }),
 }))

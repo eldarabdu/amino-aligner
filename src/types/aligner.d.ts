@@ -1,9 +1,9 @@
 import { TSequence } from "./sequences"
 
-export interface IAlighnerState {
+export interface IAlignerState {
 	sequences: TSequence[]
 }
 
-export interface IAlighnerStore extends IAlighnerState {
+export interface IAlignerStore extends IAlignerState {
 	setSequences: (value: TSequence[]) => void
 }
