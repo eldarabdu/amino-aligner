@@ -4,8 +4,21 @@ import { notifications } from "@mantine/notifications"
 export const useAutoCopy = (ref: RefObject<HTMLElement>) => {
 	useEffect(() => {
 		const handleSelection = (event: Event) => {
-			if (
+			console.log(event.type)
+			console.log(event.type === "keydown")
+			console.log((event as KeyboardEvent).ctrlKey)
+			console.log((event as KeyboardEvent).ctrlKey)
+			console.log((event as KeyboardEvent).key)
+			console.log((event as KeyboardEvent).key !== "a")
+
+			console.log(
 				(event.type === "keydown" && !(event as KeyboardEvent).ctrlKey) ||
+					(event as KeyboardEvent).key !== "a"
+			)
+
+			if (
+				event.type === "keydown" &&
+				!(event as KeyboardEvent).ctrlKey &&
 				(event as KeyboardEvent).key !== "a"
 			)
 				return
@@ -38,12 +51,10 @@ export const useAutoCopy = (ref: RefObject<HTMLElement>) => {
 		}
 
 		ref.current?.addEventListener("mouseup", handleSelection)
-		ref.current?.addEventListener("touchend", handleSelection)
 		ref.current?.addEventListener("keydown", handleSelection)
 
 		return () => {
 			ref.current?.removeEventListener("mouseup", handleSelection)
-			ref.current?.removeEventListener("touchend", handleSelection)
 			ref.current?.removeEventListener("keydown", handleSelection)
 		}
 	}, [ref])
