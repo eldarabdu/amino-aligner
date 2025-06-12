@@ -47,7 +47,7 @@ export const Layout: FC<LayoutProps> = ({}) => {
 					<Outlet />
 				</AppShell.Main>
 			</AppShell>
-			<Notifications position={isMobile ? "bottom-right" : "top-right"} />
+			<Notifications position={isMobile ? "bottom-right" : "top-right"} limit={3} />
 		</>
 	)
 }

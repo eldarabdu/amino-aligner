@@ -33,7 +33,7 @@ export const Welcome: FC<WelcomeProps> = ({ title, description, buttonText, onCl
 				</Button>
 				<div>
 					<a
-						href="https://github.com/eldarabdu/vite-basic-builder.git"
+						href="https://github.com/eldarabdu/amino-aligner.git"
 						target="_blank"
 						rel="noopener noreferrer"
 						className={classes.githubLink}

@@ -31,7 +31,7 @@ export const Search: FC<SearchProps> = ({ onChange }) => {
 			<Autocomplete
 				variant="filled"
 				data={searchData}
-				placeholder="Поиск последовательностей..."
+				placeholder="Поиск..."
 				clearable
 				onChange={onChange}
 				ref={inputRef}

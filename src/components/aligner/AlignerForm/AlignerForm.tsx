@@ -63,13 +63,13 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 			<Stack gap="md">
 				<AlignerInput
 					label="Первая последовательность"
-					placeholder="ARND..."
+					placeholder="CYIQNCPLG..."
 					key={form.key("sequence1")}
 					{...form.getInputProps("sequence1")}
 				/>
 				<AlignerInput
 					label="Вторая последовательность"
-					placeholder="ARND..."
+					placeholder="CYIQNCPLG..."
 					key={form.key("sequence2")}
 					{...form.getInputProps("sequence2")}
 				/>
