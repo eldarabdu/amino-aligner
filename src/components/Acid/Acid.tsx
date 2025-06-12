@@ -2,7 +2,7 @@ import { FC } from "react"
 import classes from "./styles.module.scss"
 import { TAminoAcid } from "@/types/sequences"
 import { getAcidData } from "@/utils/sequences"
-import { Tooltip, rem } from "@mantine/core"
+import { Tooltip, UnstyledButton, rem } from "@mantine/core"
 
 interface AcidProps {
 	fz?: number | string
@@ -23,17 +23,17 @@ export const Acid: FC<AcidProps> = ({
 
 	const content = (
 		<div
-			className={classes.acid}
 			style={{
-				fontSize: typeof fz === "string" ? fz : rem(fz),
-				fontWeight: fw,
-				width: typeof size === "string" ? size : rem(size),
-				height: typeof size === "string" ? size : rem(size),
 				backgroundColor: withBackground ? acidData[1] : "transparent",
 			}}
 		>
-			<span
+			<UnstyledButton
+				className={classes.acid}
 				style={{
+					width: typeof size === "string" ? size : rem(size),
+					height: typeof size === "string" ? size : rem(size),
+					fontSize: typeof fz === "string" ? fz : rem(fz),
+					fontWeight: fw,
 					color:
 						withBackground && acid !== "-"
 							? "var(--mantine-color-dark-9)"
@@ -41,10 +41,15 @@ export const Acid: FC<AcidProps> = ({
 				}}
 			>
 				{acid}
-			</span>
+			</UnstyledButton>
 		</div>
 	)
 
-	return acidData[2] ? <Tooltip label={acidData[2]}>{content}</Tooltip> : content
+	return acidData[2] ? (
+		<Tooltip events={{ hover: true, focus: true, touch: true }} label={acidData[2]}>
+			{content}
+		</Tooltip>
+	) : (
+		content
+	)
 }
-

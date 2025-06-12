@@ -29,23 +29,16 @@ export const AlignerDisplay: FC<AlignerDisplayProps> = ({
 				columnGap: typeof cg === "string" ? cg : rem(cg),
 			}}
 		>
-			{sequences.map((sequence, index) => (
+			{sequences.map((pair, index) => (
 				<div
 					className={classes.acids}
-					key={sequence[0] + sequence[1] + index}
+					key={pair[0] + pair[1] + index}
 					style={{ gap: typeof rg === "string" ? rg : rem(rg) }}
 				>
-					<Acid acid={sequence[0]} withBackground={true} fz={fz} fw={fw} size={size} />
-					<Acid
-						acid={sequence[1]}
-						withBackground={sequence[0] !== sequence[1]}
-						fz={fz}
-						fw={fw}
-						size={size}
-					/>
+					<Acid acid={pair[0]} withBackground={true} fz={fz} fw={fw} size={size} />
+					<Acid acid={pair[1]} withBackground={pair[0] !== pair[1]} fz={fz} fw={fw} size={size} />
 				</div>
 			))}
 		</Group>
 	)
 }
-

@@ -3,12 +3,11 @@ import classes from "./styles.module.scss"
 import { Button, Stack } from "@mantine/core"
 import { useForm } from "@mantine/form"
 import { validateAminoAcids } from "@/utils/validation"
-import { useAlighnerStore } from "@/store/aligner.state"
+import { useAlignerStore } from "@/store/aligner.state"
 import { TSequence } from "@/types/sequences"
 import { createSequencePairs } from "@/utils/sequences"
-import { AlignerInput } from "../AlignerInput/AlignerInput"
-import { VALID_AMINO_ACIDS } from "@/utils/validation"
 import { useHistoryStore } from "@/store/history.state"
+import { AlignerInput } from "@/components/aligner/AlignerInput"
 
 interface AlignerFormProps {}
 
@@ -18,7 +17,7 @@ interface FormValues {
 }
 
 export const AlignerForm: FC<AlignerFormProps> = () => {
-	const setSequences = useAlighnerStore(state => state.setSequences)
+	const setSequences = useAlignerStore(state => state.setSequences)
 	const addToHistory = useHistoryStore(state => state.addToHistory)
 
 	const form = useForm<FormValues>({
@@ -51,20 +50,12 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 
 	const handleSubmit = (values: FormValues) => {
 		const [sequence1, sequence2] = [values.sequence1, values.sequence2]
-		const result: TSequence[] = createSequencePairs(sequence1, sequence2)
+		const result: TSequence[] = createSequencePairs(
+			sequence1.toUpperCase(),
+			sequence2.toUpperCase()
+		)
 		setSequences(result)
 		addToHistory(result)
-	}
-
-	const getInputProps = (field: keyof FormValues) => {
-		const props = form.getInputProps(field)
-		return {
-			...props,
-			onChange: (event: React.ChangeEvent<HTMLInputElement>) => {
-				const newValue = event.currentTarget.value.toUpperCase()
-				form.setFieldValue(field, newValue)
-			},
-		}
 	}
 
 	return (
@@ -72,15 +63,15 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 			<Stack gap="md">
 				<AlignerInput
 					label="Первая последовательность"
-					placeholder="Введите последовательность аминокислот"
-					validateSymbols={VALID_AMINO_ACIDS}
-					{...getInputProps("sequence1")}
+					placeholder="ARND..."
+					key={form.key("sequence1")}
+					{...form.getInputProps("sequence1")}
 				/>
 				<AlignerInput
 					label="Вторая последовательность"
-					placeholder="Введите последовательность аминокислот"
-					validateSymbols={VALID_AMINO_ACIDS}
-					{...getInputProps("sequence2")}
+					placeholder="ARND..."
+					key={form.key("sequence2")}
+					{...form.getInputProps("sequence2")}
 				/>
 				<Button className={classes.button} type="submit">
 					Выровнять

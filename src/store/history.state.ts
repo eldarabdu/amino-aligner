@@ -1,14 +1,12 @@
-import { IHistoryState } from "@/types/history"
+import { IHistoryState, IHistoryStore } from "@/types/history"
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
 const initialState: IHistoryState = {
 	history: [],
-	addToHistory: () => {},
-	clearHistory: () => {},
 }
 
-export const useHistoryStore = create<IHistoryState>()(
+export const useHistoryStore = create<IHistoryStore>()(
 	persist(
 		set => ({
 			...initialState,

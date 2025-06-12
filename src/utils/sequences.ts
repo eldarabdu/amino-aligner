@@ -20,3 +20,9 @@ export const getAcidData = (acid: TAminoAcid): TAcidData => {
 	const acidData = colorSchema.find(item => item[0].includes(acid))
 	return acidData || ["-", "transparent", ""]
 }
+
+export const getSequenceOrigin = (sequence: TSequence[]): [string, string] => {
+	const sequence1 = sequence.reduce((acc, pair) => acc + pair[0], "")
+	const sequence2 = sequence.reduce((acc, pair) => acc + pair[1], "")
+	return [sequence1, sequence2]
+}
