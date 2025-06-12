@@ -4,18 +4,6 @@ import { notifications } from "@mantine/notifications"
 export const useAutoCopy = (ref: RefObject<HTMLElement>) => {
 	useEffect(() => {
 		const handleSelection = (event: Event) => {
-			console.log(event.type)
-			console.log(event.type === "keydown")
-			console.log((event as KeyboardEvent).ctrlKey)
-			console.log((event as KeyboardEvent).ctrlKey)
-			console.log((event as KeyboardEvent).key)
-			console.log((event as KeyboardEvent).key !== "a")
-
-			console.log(
-				(event.type === "keydown" && !(event as KeyboardEvent).ctrlKey) ||
-					(event as KeyboardEvent).key !== "a"
-			)
-
 			if (
 				event.type === "keydown" &&
 				!(event as KeyboardEvent).ctrlKey &&
