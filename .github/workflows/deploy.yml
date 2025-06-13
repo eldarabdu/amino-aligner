@@ -27,20 +27,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build
-          branch: gh-pages
-          token: ${{ secrets.PAT_TOKEN }}
-          clean: true
-          clean-exclude: |
-            .nojekyll
-            CNAME
-          single-commit: true
+      - name: Build and Deploy to GitHub Pages
+        run: npm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
 
   prod-deploy:
     if: github.ref == 'refs/heads/main'
