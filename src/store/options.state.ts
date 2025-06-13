@@ -18,3 +18,5 @@ export const useOptionsStore = create<IOptionsStore>()(
 		{ name: "options-storage" }
 	)
 )
+
+export const useIsHistory = () => useOptionsStore(state => state.options.history)

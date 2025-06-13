@@ -1,6 +1,5 @@
-import { FC, useRef } from "react"
+import { FC } from "react"
 import { TextInput } from "@mantine/core"
-import { useAutoCopy } from "@/hooks/useAutoCopy"
 
 interface AlignerInputProps {
 	label: string
@@ -23,14 +22,10 @@ export const AlignerInput: FC<AlignerInputProps> = ({
 	onBlur,
 	error,
 }) => {
-	const inputRef = useRef<HTMLInputElement>(null)
-	useAutoCopy(inputRef)
-
 	return (
 		<TextInput
 			label={label}
 			placeholder={placeholder}
-			ref={inputRef}
 			value={value}
 			defaultValue={defaultValue}
 			onChange={onChange}
@@ -45,4 +40,3 @@ export const AlignerInput: FC<AlignerInputProps> = ({
 		/>
 	)
 }
-

@@ -5,12 +5,14 @@ import { useHistoryStore } from "@/store/history.state"
 import { AlignerDisplay } from "@/components/aligner/AlignerDisplay/AlignerDisplay"
 import { Search } from "../Search"
 import { isSequenceInHistory } from "@/utils/history"
+import { useIsHistory } from "@/store/options.state"
 
 interface SidebarProps {}
 
 export const Sidebar: FC<SidebarProps> = ({}) => {
 	const [search, setSearch] = useState("")
 	const { history, clearHistory } = useHistoryStore()
+	const isHistory = useIsHistory()
 
 	const filteredHistory = useMemo(() => {
 		return history.filter(sequences => isSequenceInHistory(search, sequences))
@@ -32,7 +34,16 @@ export const Sidebar: FC<SidebarProps> = ({}) => {
 				</Group>
 				<ScrollArea h="100%" offsetScrollbars>
 					<Stack gap="md">
-						{history.length === 0 ? (
+						{!isHistory && history.length === 0 && !search ? (
+							<div>
+								<Text c="dimmed" ta="center">
+									Вы отключили историю :(
+								</Text>
+								<Text c="dimmed" ta="center">
+									Так что тут будет пусто...
+								</Text>
+							</div>
+						) : history.length === 0 ? (
 							<Text c="dimmed" ta="center">
 								История пуста
 							</Text>
@@ -82,4 +93,3 @@ export const Sidebar: FC<SidebarProps> = ({}) => {
 		</Paper>
 	)
 }
-
