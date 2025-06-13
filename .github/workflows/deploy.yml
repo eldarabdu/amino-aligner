@@ -36,6 +36,11 @@ jobs:
           folder: build
           branch: gh-pages
           token: ${{ secrets.PAT_TOKEN }}
+          clean: true
+          clean-exclude: |
+            .nojekyll
+            CNAME
+          single-commit: true
 
   prod-deploy:
     if: github.ref == 'refs/heads/main'

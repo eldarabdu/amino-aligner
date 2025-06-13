@@ -11,7 +11,7 @@
 		"lint": "eslint .",
 		"typecheck": "tsc --noEmit",
 		"predeploy": "npm run build",
-		"dev-deploy": "gh-pages -d build"
+		"deploy": "gh-pages -d build"
 	},
 	"dependencies": {
 		"@mantine/core": "^7.16.2",
