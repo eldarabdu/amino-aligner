@@ -9,6 +9,7 @@ import { Sidebar } from "@/components/Sidebar"
 import { useWelcomeStore } from "@/store/welcome.state"
 import classNames from "classnames"
 import { Notifications } from "@mantine/notifications"
+import { useAutoCopy } from "@/hooks/useAutoCopy"
 
 interface LayoutProps {}
 
@@ -16,6 +17,7 @@ export const Layout: FC<LayoutProps> = ({}) => {
 	const { isWelcomeModalOpen } = useWelcomeStore()
 	const [opened, { toggle }] = useDisclosure()
 	const isMobile = useMediaQuery(`(max-width: ${em(750)})`)
+	useAutoCopy()
 
 	return (
 		<>
