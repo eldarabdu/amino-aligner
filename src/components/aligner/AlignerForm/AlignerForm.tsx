@@ -80,4 +80,3 @@ export const AlignerForm: FC<AlignerFormProps> = () => {
 		</form>
 	)
 }
-

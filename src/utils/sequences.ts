@@ -10,11 +10,11 @@ export const createSequencePairs = (sequence1: string, sequence2: string): TSequ
 export const getAcidData = (acid: TAminoAcid): TAcidData => {
 	const colorSchema: TAcidData[] = [
 		["C", "#FFEA00", "Цистеин"],
-		["AILMFWYVP", "#67E4A6", "Гидрофобные"],
+		["AILMFWYVP", "#67E4A6", "Гидрофобная"],
 		["G", "#C4C4C4", "Глицин"],
-		["DE", "#FC9CAC", "Отрицательно заряженные"],
-		["KR", "#BB99FF", "Положительно заряженные"],
-		["STHQN", "#80BFFF", "Полярные незаряженные"],
+		["DE", "#FC9CAC", "Отрицательно заряженная"],
+		["KR", "#BB99FF", "Положительно заряженная"],
+		["STHQN", "#80BFFF", "Полярно незаряженная"],
 	]
 
 	const acidData = colorSchema.find(item => item[0].includes(acid))

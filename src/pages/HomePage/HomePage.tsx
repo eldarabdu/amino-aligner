@@ -15,7 +15,7 @@ export const HomePage: FC<HomePageProps> = () => {
 				<Welcome
 					title="Привет"
 					description="Сделаю всё ровно"
-					buttonText="НАЖМИ"
+					buttonText="Начать"
 					onClose={() => setIsWelcomeModalOpen(false)}
 				/>
 			)}
