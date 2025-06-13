@@ -23,7 +23,7 @@ export const MenuRoot: FC<MenuProps> = ({ children }) => {
 			<Menu.Target>{children}</Menu.Target>
 
 			<Menu.Dropdown>
-				<Menu.Label>Соц сети</Menu.Label>
+				<Menu.Label>Контакты</Menu.Label>
 				<Menu.Item
 					component="a"
 					href="https://t.me/eldar2499"
