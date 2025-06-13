@@ -45,4 +45,3 @@ export const Welcome: FC<WelcomeProps> = ({ title, description, buttonText, onCl
 		</div>
 	)
 }
-

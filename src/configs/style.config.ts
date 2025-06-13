@@ -169,7 +169,7 @@ const theme = createTheme({
 	components: {
 		Button: {
 			defaultProps: {
-				bg: "blue.0",
+				bg: "blue.3",
 				h: 40,
 				fw: "500",
 			},
@@ -202,4 +202,3 @@ const theme = createTheme({
 })
 
 export default theme
-
