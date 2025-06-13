@@ -6,7 +6,7 @@ const HomePage = lazy(() => import("@/pages/HomePage"))
 class RouterConfig {
 	routes: IRoute[] = [
 		{
-			path: "/amino-aligner",
+			path: "/",
 			component: <HomePage />,
 			slug: "home",
 		},
