@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
-	"homepage": "https://eldarabdu.github.io/amino-aligner",
+	"homepage": "https://getrequest.ru/",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",

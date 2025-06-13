@@ -4,7 +4,6 @@ import path from "path"
 import svgr from "vite-plugin-svgr"
 
 export default defineConfig({
-	base: "/amino-aligner/",
 	plugins: [
 		react(),
 		svgr({
@@ -48,4 +47,3 @@ export default defineConfig({
 		},
 	},
 })
-

@@ -10,10 +10,7 @@ const App = () => {
 	return (
 		<>
 			<MantineProvider defaultColorScheme="dark" theme={theme}>
-				<BrowserRouter
-					basename="/amino-aligner"
-					future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-				>
+				<BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
 					<AppRoutes />
 				</BrowserRouter>
 			</MantineProvider>
